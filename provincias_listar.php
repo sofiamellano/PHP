@@ -1,10 +1,20 @@
+<?php
+  if (isset($_GET['ideliminar'])) {
+  
+    $sql = "UPDATE provincias SET deleted = 1 WHERE idprovincia = " . $_GET['ideliminar'];
+    $resp = mysqli_query($cnn, $sql);
+  }
+?>
+
+
+
 <div class="container mt-5">
   <!-- Título y botón agregar -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="text-black mb-0">Provincias Listar</h2>
-    <button class="btn btn-success">
+    <a class="btn btn-success" href="index.php?seccion=provincias&accion=alta">
       <i class="bi bi-plus-circle me-1"></i> Agregar
-    </button>
+    </a>
   </div>
 
   <!-- Tabla -->
@@ -28,13 +38,15 @@
                     <tr>
                         <td><?=$campos['idprovincia'];?></td>
                         <td><?=$campos['provincia'];?></td>
+
                         <td class="text-center">
-                            <button class="btn btn-sm btn-warning me-2">
+                            <a class="btn btn-sm btn-warning me-2" href="index.php?seccion=provincias&accion=edit&accion=edit&id=<?=$campos['idprovincia'];?>">
                             <i class="bi bi-pencil-fill"></i> Editar
-                            </button>
-                            <button class="btn btn-sm btn-danger">
-                            <i class="bi bi-trash-fill"></i> Eliminar
-                            </button>
+                            </a>
+                            <a class="btn btn-sm btn-danger" 
+  onclick="confirmarEliminacion(event, 'index.php?seccion=provincias&accion=listar&ideliminar=<?=$campos['idprovincia'];?>')">
+  <i class="bi bi-trash-fill"></i> Eliminar
+</a>
                         </td>
                     </tr>
              <?php  } 

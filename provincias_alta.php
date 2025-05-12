@@ -33,9 +33,9 @@ if (isset($_POST['btnGuardar'])) {
     </div>
 
     <div class="text-end">
-      <button type="submit" name="btnGuardar" class="btn btn-primary rounded-pill px-4">
+      <a href="index.php?seccion=provincias&accion=listar" onclick="document.forms[0].submit();" class="btn btn-primary rounded-pill px-4">
         <i class="bi bi-save me-1"></i>Guardar
-      </button>
+      </a>
     </div>
   </form>
 </div>

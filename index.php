@@ -83,5 +83,29 @@ if (!file_exists($lcArchivo)) {
 
   <!-- Scripts Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <
+  
+<script>
+  function confirmarEliminacion(event, url) {
+    event.preventDefault();
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Esta acción eliminará la provincia.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url;
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
