@@ -22,10 +22,10 @@
 // config.php
 
 // Definir las credenciales de conexión en variables
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$dbname = 'bd_prueba';
+$host = 'localhost'; // ip del server
+$user = 'root'; // usuario
+$pass = ''; // contraseña
+$dbname = 'bd_prueba'; // nombre de la base de datos
 
 // Crear la conexión usando las variables
 $cnn = mysqli_connect($host, $user, $pass, $dbname);

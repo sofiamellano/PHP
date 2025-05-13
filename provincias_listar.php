@@ -40,7 +40,7 @@
                         <td><?=$campos['provincia'];?></td>
 
                         <td class="text-center">
-                            <a class="btn btn-sm btn-warning me-2" href="index.php?seccion=provincias&accion=edit&accion=edit&id=<?=$campos['idprovincia'];?>">
+                            <a class="btn btn-sm btn-warning me-2" href="index.php?seccion=provincias&accion=edit&accion=edit&idprovincia=<?=$campos['idprovincia'];?>">
                             <i class="bi bi-pencil-fill"></i> Editar
                             </a>
                             <a class="btn btn-sm btn-danger" 

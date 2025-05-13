@@ -6,7 +6,7 @@ if (isset($_POST['btnEnviar'])) {
 }
 
 if (isset($_GET['idprovincia'])) {
-    $idprovincia = $_GET['id'];
+    $id = $_GET['idprovincia'];
     $sql = "SELECT * FROM provincias WHERE idprovincia = $id";  
     $resp = mysqli_query($cnn, $sql);
     $campos = mysqli_fetch_array($resp);
