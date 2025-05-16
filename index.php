@@ -43,16 +43,16 @@ if (!file_exists($lcArchivo)) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-3">
           <li class="nav-item">
-            <a class="nav-link active" href="index.php/seccion=alumnos&accion=listar"><i class="bi bi-person-fill me-1"></i>Alumnos</a>
+            <a class="nav-link active" href="index.php?seccion=alumnos&accion=listar"><i class="bi bi-person-fill me-1"></i>Alumnos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?seccion=provincias&accion=listar"><i class="bi bi-geo-alt-fill me-1"></i>Provincias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php/seccion=localidadess&accion=listar"><i class="bi bi-buildings-fill me-1"></i>Localidades</a>
+            <a class="nav-link" href="index.php?seccion=localidades&accion=listar"><i class="bi bi-buildings-fill me-1"></i>Localidades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php/seccion=barrios&accion=listar"><i class="bi bi-house-door-fill me-1"></i>Barrios</a>
+            <a class="nav-link" href="index.php?seccion=barrios&accion=listar"><i class="bi bi-house-door-fill me-1"></i>Barrios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-gear-fill me-1"></i>Configuraciones</a>

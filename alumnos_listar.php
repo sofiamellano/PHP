@@ -1,29 +1,53 @@
 <?php
-include 'cnn.php';
-        
-    if (isset($_GET['eliminarid'])) {
-        $eliminarid = $_GET['eliminarid'];
-        // $sql = "DELETE FROM alumnos WHERE idalumno = $eliminarid";
-        $sql = 'UPDATE alumnos SET deleted = 1 WHERE idalumno = '.$eliminarid; 
-        mysqli_query($cnn, $sql); // Execute the DELETE query
+    if (isset($_GET['ideliminar'])) {
+    $ideliminar = $_GET['ideliminar'];
+    $sql = "UPDATE alumnos SET deleted = 1 WHERE idalumno = $ideliminar";
+    mysqli_query($cnn, $sql);
     }
-        $sql = "SELECT * FROM alumnos WHERE !deleted"; // Select only non-deleted records	
-        $resp = mysqli_query($cnn, $sql);
-
-        while ($campos = mysqli_fetch_array($resp)) {
-            echo '<h3>'.$campos['idalumno']. '--'.$campos['nombre'].'</h3>';
-
-            $link = 'alumnos_edit.php?idalumno='.$campos['idalumno'];
-
-            $linkEliminar = 'alumnos_listar.php?eliminarid='.$campos['idalumno'];
-
-            echo '<a href="'.$link.'">Editar</a>';
-            echo '<br>';
-
-            echo '<a href="'.$linkEliminar.'">Eliminar</a>';
-            echo '<br>';
-        }
-        
-    
 ?>
-<!-- <a href=".php">Limpiar</a> -->
+
+<div class="container mt-5">
+    <!-- Título y botón agregar -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-black mb-0">Alumnos</h2>
+            <a class="btn btn-success" href="index.php?seccion=alumnos&accion=edit">
+                <i class="bi bi-plus-circle me-1"></i> Agregar
+            </a>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-bordered align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">ID Alumno</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col" class="text-center">Direccion</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+                <tbody>
+                <?php
+                $sql = 'SELECT * FROM alumnos WHERE deleted = 0';
+                $resp = mysqli_query($cnn, $sql);
+                while ($campos = mysqli_fetch_array($resp)) {
+                ?>
+                    <tr>
+                        <td><?= $campos['idalumno']; ?></td>
+                        <td><?= $campos['alumno']; ?></td>
+                        <td><?= $campos['direccion']; ?></td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-warning me-2" href="index.php?seccion=alumnos&accion=edit&idalumno=<?= $campos['idalumno']; ?>">
+                                <i class="bi bi-pencil-fill"></i> Editar
+                            </a>
+                            <a class="btn btn-sm btn-danger" onclick="confirmarEliminacion(event, 'index.php?seccion=alumnos&accion=listar&ideliminar=<?= $campos['idalumno']; ?>')">
+                                <i class="bi bi-trash-fill"></i> Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+        </table>
+    </div>
+</div>
+
