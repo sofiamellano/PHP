@@ -47,5 +47,16 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card border-0 shadow-lg rounded-4 text-center h-100">
+          <div class="card-body">
+            <i class="bi bi-people-fill display-4 text-danger mb-3"></i>
+            <h5 class="card-title fw-semibold">Clientes</h5>
+            <p class="text-muted">Registra y organiza clientes.</p>
+            <a href="index.php?seccion=clientes&accion=listar" class="btn btn-danger btn-sm">Ir a clientes</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>

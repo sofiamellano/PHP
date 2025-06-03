@@ -1,24 +1,25 @@
 <?php
-include "cnn.php";
+  include "cnn.php";
+  include "funciones.php";
 
-$lcSeccion = '';
-$lcAccion = '';
+  miSelect('provincias', 'idprovincia', 0);
 
-if (isset($_GET['seccion'])) {
-    $lcSeccion = $_GET['seccion'];
-}
+  $lcSeccion = '';
+  $lcAccion = '';
 
-if (isset($_GET['accion'])) {
-    $lcAccion = $_GET['accion'];
-}
+  if (isset($_GET['seccion'])) {
+      $lcSeccion = $_GET['seccion'];
+  }
 
-$lcArchivo = $lcSeccion.'_'.$lcAccion.'.php';
+  if (isset($_GET['accion'])) {
+      $lcAccion = $_GET['accion'];
+  }
 
-if (!file_exists($lcArchivo)) {
-    $lcArchivo = 'inicio.php';
-}
+  $lcArchivo = $lcSeccion.'_'.$lcAccion.'.php';
 
-
+  if (!file_exists($lcArchivo)) {
+      $lcArchivo = 'inicio.php';
+  }
 ?>
 
 
@@ -55,7 +56,7 @@ if (!file_exists($lcArchivo)) {
             <a class="nav-link" href="index.php?seccion=barrios&accion=listar"><i class="bi bi-house-door-fill me-1"></i>Barrios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-gear-fill me-1"></i>Configuraciones</a>
+            <a class="nav-link" href="index.php?seccion=clientes&accion=listar"><i class="bi bi-people-fill me-1"></i>Clientes</a>
           </li>
         </ul>
       </div>
@@ -68,17 +69,17 @@ if (!file_exists($lcArchivo)) {
     ?>
   </main>
 
- <!-- Footer -->
-<footer class="bg-dark text-white text-center py-4 mt-5">
-  <div class="container">
-    <p class="mb-1">&copy; 2025 Panel de Gestión. Todos los derechos reservados.</p>
-    <p class="mb-0">
-      <a href="#" class="text-decoration-none text-light me-3">Términos</a>
-      <a href="#" class="text-decoration-none text-light me-3">Privacidad</a>
-      <a href="#" class="text-decoration-none text-light">Contacto</a>
-    </p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1">&copy; 2025 Panel de Gestión. Todos los derechos reservados.</p>
+      <p class="mb-0">
+        <a href="#" class="text-decoration-none text-light me-3">Términos</a>
+        <a href="#" class="text-decoration-none text-light me-3">Privacidad</a>
+        <a href="#" class="text-decoration-none text-light">Contacto</a>
+      </p>
+    </div>
+  </footer>
 
 
   <!-- Scripts Bootstrap -->
@@ -87,25 +88,25 @@ if (!file_exists($lcArchivo)) {
 
   <
   
-<script>
-  function confirmarEliminacion(event, url) {
-    event.preventDefault();
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: "Esta acción eliminará la provincia.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#6c757d',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = url;
-      }
-    });
-  }
-</script>
+  <script>
+    function confirmarEliminacion(event, url) {
+      event.preventDefault();
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Esta acción eliminará la provincia.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = url;
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
